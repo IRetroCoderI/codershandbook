@@ -8,53 +8,34 @@ public class converter {
         //let's start with decimal to binary, then binary to decimal
         //then we can deal with decimal to hex, then hex to decimal
         //after everything is done we can deal with alphabets and stuff. for now i want to work with numbers
-        int num = 213;
+        int num = 27;
 
         //give decimalToBinary a number, then return a string
-        decimalToBinary(num);
+
+        System.out.println(decimalToBinary(num));
 
     }
 
     public static int binaryToDecimal(int binary){
-
         return 00;
     }
-    public static void decimalToBinary(int decimal){
-        int[] emptySet = {0, 1, 3};
+    public static String decimalToBinary(int decimal){
         //divide num by two and push the remainder to a stack
         LinkedList<Integer> stack = new LinkedList<Integer>();
         int num = decimal;
         while(num > 0){
-            System.out.println(num);
             stack.push(num%2);
             num = num/2;
-
         }
-
-        System.out.println(stack);
-
-        String s = "";
+        return(arrayToString(stack));
+    }
+    public static String arrayToString(LinkedList<Integer> stack) {
+        String binary = "";
         Iterator<Integer> iterator = stack.iterator();
         while(iterator.hasNext()){
-
-            s = s + iterator.next();
-
+            binary = binary + iterator.next();
         }
-
-        System.out.println(s);
-
-
-
-    }
-    public static int[] arrayToInt(LinkedList<Integer> array) {
-        int[] nums = new int[array.size()];
-
-        for (int i = 0; i < array.size(); i++){
-            nums[i] = array.pop();
-        }
-        return nums;
-
-
+        return(binary);
 
     }
 
